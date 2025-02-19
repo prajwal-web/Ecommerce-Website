@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { RootState } from '@reduxjs/toolkit/query';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import users from '../../utils/users.json';
 
 interface IUser {
@@ -13,18 +12,38 @@ interface IUser {
 
 type TInitialState = {
   original: IUser[];
+  filteredUsers: IUser[];
+  searchQuery: string;
 };
 
 const initialState: TInitialState = {
-  original: users
+  original: users,
+  filteredUsers: users,
+  searchQuery: '',
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {}
+  reducers: {
+    searchUsers: (state, action: PayloadAction<string>) => {
+      const query = action.payload.toLowerCase().trim(); 
+      state.searchQuery = action.payload;
+  
+      if (query === '') {
+        state.filteredUsers = state.original; 
+        console.log("hello")
+      } else {
+        state.filteredUsers = state.original.filter((user) => {
+          const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
+          return fullName.includes(query); 
+        });
+      }
+    }
+  }
+  
 });
 
-// export const {  } = userSlice.actions
-export const selectUser = (state: RootState) => state.userSlice.value;
-export default userSlice;
+export const { searchUsers } = userSlice.actions;
+export const selectFilteredUsers = (state: RootState) => state.user.filteredUsers;
+export default userSlice.reducer;
