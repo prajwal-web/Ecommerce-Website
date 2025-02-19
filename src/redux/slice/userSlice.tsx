@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@reduxjs/toolkit/query';
-import users from "../../utils/users.json"
+import users from '../../utils/users.json';
 
 interface IUser {
   firstName: string;
@@ -16,18 +16,14 @@ type TInitialState = {
 };
 
 const initialState: TInitialState = {
-  original: users,
+  original: users
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    showPaginatedData: (state, action: PayloadAction<TPaginationIndex>) => {
-      return state.original.slice(1, 40)
-    }
-  },
+  reducers: {}
 });
-export const { showPaginatedData } = userSlice.actions;
-export const selectUser = (state: RootState) => state.counter.value;
+// export const {  } = userSlice.actions
+export const selectUser = (state: RootState) => state.userSlice.value;
 export default userSlice;
