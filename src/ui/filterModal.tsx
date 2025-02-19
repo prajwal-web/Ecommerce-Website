@@ -39,7 +39,21 @@ const FilterModal = ({ open, handleClose }: any) => {
       >
         <Typography
           variant="h4"
-          sx={{ position: 'absolute', right: 20, top: 10, fontWeight: 500, cursor: 'pointer' }}
+          sx={{
+            position: 'absolute',
+            right: 20,
+            top: 10,
+            width: '30px',
+            textAlign: 'center',
+            borderRadius: '5px',
+            border: '1px solid black',
+            fontWeight: 500,
+            cursor: 'pointer',
+            '&:hover': {
+              backgroundColor: '#848484',
+              transition: 'ease-in-out'
+            }
+          }}
           onClick={handleClose}
         >
           X

@@ -38,7 +38,7 @@ const LandingPage = () => {
 
         <Grid2 container spacing={3}>
           {filteredData.map((item, index) => (
-            <Grid2 size={{ xs: 12, md: 3, sm: 6 }} key={item.phone}>
+            <Grid2 size={{ xs: 12, sm: 6, md: 3 }} key={item.phone}>
               <Cards item={item} index={index} />
             </Grid2>
           ))}
