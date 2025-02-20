@@ -14,9 +14,11 @@ const Cards = ({ item, index }: any) => {
         <Typography gutterBottom variant="h5">
           {item.firstName} {item.lastName}
         </Typography>
-        <Typography variant="body2">{item.email}</Typography>
-        <Typography variant="body2">{item.phone}</Typography>
-        <Typography variant="body2">{item.address}</Typography>
+        <Typography variant="h5">{item.email}</Typography>
+        <Typography variant="h5">{item.phone}</Typography>
+        <Typography variant="h5">{item.address}</Typography>
+        <Typography variant="h5">{item.company}</Typography>
+        <Typography variant="h5">{item.jobTitle}</Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
