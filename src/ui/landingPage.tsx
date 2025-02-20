@@ -14,7 +14,7 @@ const LandingPage = () => {
     return {
       ...rest,
       id: index,
-      gender: 'male',
+      gender: 'Male',
       company: 'Appstec-' + index,
       jobTitle: 'Developer-' + index
     };
@@ -26,7 +26,6 @@ const LandingPage = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1, padding: '20px' }}>
-        {/* {console.log('console3')} */}
         <TextField
           label="Search by Name"
           variant="outlined"

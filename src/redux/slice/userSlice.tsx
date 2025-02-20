@@ -47,7 +47,7 @@ export const userSlice = createSlice({
       const { ageFrom, ageTo, emailEnding, gender, companies, jobTitles } = action.payload;
       state.filteredUsers = state.original.filter((user) => {
         const validAge = user.age >= ageFrom && user.age <= ageTo;
-        const validemailEnding = user.email.includes(emailEnding);
+        const validemailEnding = emailEnding ? user.email.includes(emailEnding) : true;
         const validGender = gender === 'All' || user.gender === gender;
         const validcompanies = companies === 'All' || user.companies === companies;
         const validJobTitles = jobTitles === 'All' || user.jobTitle === jobTitles;
