@@ -9,9 +9,9 @@ interface IUser {
   phone: string;
   address: string;
   age: number;
-  gender: string;
-  companies: string;
-  jobTitle: string;
+  gender?: string;
+  companies?: string;
+  jobTitle?: string;
 }
 
 type TInitialState = {

@@ -14,6 +14,7 @@ const LandingPage = () => {
     return {
       ...rest,
       id: index,
+      gender: 'male',
       company: 'Appstec-' + index,
       jobTitle: 'Developer-' + index
     };
