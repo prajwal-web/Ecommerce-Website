@@ -33,7 +33,6 @@ export const userSlice = createSlice({
     searchUsers: (state, action: PayloadAction<string>) => {
       const query = action.payload.toLowerCase().trim();
       state.searchQuery = action.payload;
-
       if (query === '') {
         state.filteredUsers = state.original;
       } else {
@@ -43,20 +42,43 @@ export const userSlice = createSlice({
         });
       }
     },
+    updateData: (state, action) => {
+      return { ...state, filteredUsers: action.payload };
+    },
     actionUsers: (state, action) => {
       const { ageFrom, ageTo, emailEnding, gender, companies, jobTitles } = action.payload;
-      state.filteredUsers = state.original.filter((user) => {
-        const validAge = user.age >= ageFrom && user.age <= ageTo;
-        const validemailEnding = emailEnding ? user.email.includes(emailEnding) : true;
-        const validGender = gender === 'All' || user.gender === gender;
-        const validcompanies = companies === 'All' || user.companies === companies;
-        const validJobTitles = jobTitles === 'All' || user.jobTitle === jobTitles;
-        return validAge && validemailEnding && validGender && validcompanies && validJobTitles;
-      });
+      let tempState = [...state.filteredUsers];
+      console.log(tempState);
+
+      if (gender !== 'All') {
+        tempState = tempState.filter((user) => user.gender === gender);
+        console.log(gender + ' ' + tempState);
+      }
+      if (emailEnding !== '') {
+        tempState = tempState.filter((user) => user.email.endsWith(emailEnding));
+        console.log(emailEnding);
+      }
+      if (ageFrom !== undefined && ageTo !== undefined) {
+        tempState = tempState.filter((user) => user.age >= ageFrom && user.age <= ageTo);
+        console.log(ageFrom + ' ' + ageTo);
+      }
+      if (companies !== 'All') {
+        tempState = tempState.filter((user) => user.companies === companies);
+        console.log(companies);
+      }
+      if (jobTitles !== 'All') {
+        tempState = tempState.filter((user) => user.jobTitle === jobTitles);
+        console.log(jobTitles);
+      }
+      // state.filteredUsers = tempState;
+      return {
+        ...state,
+        filteredUsers: tempState
+      };
     }
   }
 });
 
-export const { searchUsers, actionUsers } = userSlice.actions;
+export const { searchUsers, actionUsers, updateData } = userSlice.actions;
 export const selectFilteredUsers = (state: RootState) => state.user.filteredUsers;
 export default userSlice.reducer;

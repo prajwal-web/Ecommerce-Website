@@ -2,24 +2,28 @@ import Cards from './cards';
 import { Box, Grid2, TextField, Button, Typography } from '@mui/material';
 import FilterModal from './filterModal';
 import { useAppDispatch, useAppSelector } from '../hooks/useStore';
-import { searchUsers } from '../redux/slice/userSlice';
-import { useState } from 'react';
+import { searchUsers, updateData } from '../redux/slice/userSlice';
+import { useEffect, useState } from 'react';
 
 const LandingPage = () => {
   const dispatch = useAppDispatch();
   const users = useAppSelector((state) => state.user.filteredUsers);
-
+  console.log(users);
   const us = users.map((item, index) => {
     const { ...rest } = item;
     return {
       ...rest,
       id: index,
       gender: 'Male',
-      company: 'Appstec-' + index,
-      jobTitle: 'Developer-' + index
+      companies: 'Appstec-' + Math.floor(Math.random() * 3 + 1),
+      jobTitle: 'Developer-' + Math.floor(Math.random() * 3 + 1)
     };
   });
   console.log(us);
+
+  useEffect(() => {
+    dispatch(updateData(us));
+  }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -42,7 +46,7 @@ const LandingPage = () => {
           </Typography>
         ) : (
           <Grid2 container spacing={3}>
-            {us.map((item, index) => (
+            {users.map((item, index) => (
               <Grid2 size={{ xs: 12, sm: 6, md: 3 }} key={item.phone}>
                 <Cards item={item} index={index} />
               </Grid2>

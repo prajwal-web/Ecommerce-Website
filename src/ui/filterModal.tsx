@@ -7,9 +7,9 @@ const FilterModal = ({ open, handleClose }: { open: boolean; handleClose: () => 
   const [minAge, setMinAge] = useState(18);
   const [maxAge, setMaxAge] = useState(78);
   const [emailEnding, setEmailEnding] = useState('');
-  const [gender, setGender] = useState('');
-  const [companies, setCompanies] = useState('');
-  const [jobTitles, setJobTitles] = useState('');
+  const [gender, setGender] = useState('All');
+  const [companies, setCompanies] = useState('All');
+  const [jobTitles, setJobTitles] = useState('All');
 
   const dispatch = useAppDispatch();
 
