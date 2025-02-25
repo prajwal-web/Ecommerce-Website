@@ -1,9 +1,10 @@
-import { ThemeProvider } from '@mui/material';
-import theme from './theme/theme';
+import { Button, ThemeProvider, Typography } from '@mui/material';
+import theme from './theme';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <h1>hello world</h1>
+      <Typography variant="h1">hello world</Typography>
+      <Button variant="contained">click here</Button>
     </ThemeProvider>
   );
 }

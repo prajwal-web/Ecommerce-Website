@@ -1,167 +1,138 @@
-import { createTheme } from '@mui/material';
+import { ThemeOptions } from '@mui/material';
 
-const theme = createTheme({
+export const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: '#ff6f61',
-      light: '#ffa092',
-      dark: '#c53c3f',
-      contrastText: '#ffffff'
+      main: '#1E3A5F'
     },
     secondary: {
-      main: '#2f4858',
-      light: '#547c8c',
-      dark: '#001f2d',
-      contrastText: '#ffffff'
+      main: '#6FA3C7'
     },
     background: {
-      default: '#f5f5f5',
-      paper: '#ffffff'
+      default: '#f8f7f4'
     },
     text: {
-      primary: '#333333',
-      secondary: '#555555',
-      disabled: '#aaaaaa'
-    },
-    error: {
-      main: '#d32f2f'
-    },
-    warning: {
-      main: '#ffa000'
-    },
-    info: {
-      main: '#1976d2'
-    },
-    success: {
-      main: '#388e3c'
+      primary: '#1E3A5F',
+      secondary: '#6FA3C7'
     }
   },
   typography: {
     h1: {
-      fontSize: '2.5rem',
-      fontWeight: 700,
-      fontFamily: 'Arvo',
-      lineHeight: 1.2
+      fontFamily: 'Bungee',
+      '@media (min-width: 375px)': {
+        fontSize: '2.4rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '3.6rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '4.8rem'
+      }
     },
     h2: {
-      fontSize: '2rem',
-      fontWeight: 600,
-      fontFamily: 'Arvo',
-      lineHeight: 1.3
+      fontFamily: 'Bungee',
+      '@media (min-width: 375px)': {
+        fontSize: ' 1.8rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '2.4rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '3.6rem'
+      }
     },
     h3: {
-      fontSize: '1.75rem',
-      fontWeight: 600,
-      fontFamily: 'Arvo',
-      lineHeight: 1.4
-    },
-    h4: {
-      fontSize: '1.5rem',
-      fontWeight: 500,
-      fontFamily: 'Lato',
-      lineHeight: 1.5
-    },
-    h5: {
-      fontSize: '1.25rem',
-      fontWeight: 500,
-      fontFamily: 'Lato',
-      lineHeight: 1.6
+      fontFamily: 'Bungee',
+      '@media (min-width: 375px)': {
+        fontSize: ' 1.2rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.8rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '2.4rem'
+      }
     },
     h6: {
-      fontSize: '1rem',
-      fontWeight: 500,
-      fontFamily: 'Lato',
-      lineHeight: 1.7
+      fontFamily: 'Bungee',
+      '@media (min-width: 375px)': {
+        fontSize: ' 0.8rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '1.2rem'
+      }
+    },
+    h5: {
+      fontFamily: 'Bungee',
+      '@media (min-width: 375px)': {
+        fontSize: ' 0.9rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.2rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '1.4rem'
+      }
+    },
+    h4: {
+      fontFamily: 'Bungee',
+      '@media (min-width: 375px)': {
+        fontSize: ' 1rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.4rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '1.8rem'
+      }
     },
     body1: {
-      fontSize: '1rem',
-      fontFamily: 'Lato',
-      fontWeight: 400
+      fontFamily: 'Space Grotesk',
+      '@media (min-width: 375px)': {
+        fontSize: ' 0.9rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1rem'
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.2rem'
+      }
     },
     body2: {
-      fontSize: '0.875rem',
-      fontFamily: 'Lato',
-      fontWeight: 400
+      fontFamily: 'Space Grotesk',
+      '@media (min-width: 375px)': {
+        fontSize: ' 0.75rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '0.85rem'
+      },
+      '@media (min-width: 1200px)': {
+        fontSize: '0.9rem'
+      }
     },
     button: {
-      textTransform: 'uppercase',
-      fontFamily: 'Lato',
-      fontWeight: 600
-    },
-    caption: {
-      fontSize: '0.75rem',
-      fontFamily: 'Lato',
-      fontWeight: 400
-    },
-    overline: {
-      fontSize: '0.625rem',
-      fontWeight: 400,
-      fontFamily: 'Lato',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase'
+      fontFamily: 'Space Grotesk'
     }
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
-          padding: '10px 20px'
-        },
-        containedPrimary: {
-          backgroundColor: '#ff6f61',
-          color: '#ffffff',
-          '&:hover': {
-            backgroundColor: '#e65c4f'
+          fontFamily: 'Space Grotesk',
+          textTransform: 'capitalize',
+          fontSize: '0.8rem',
+          boxShadow: 'none',
+          '@media (min-width: 375px)': {
+            fontSize: '1rem'
+          },
+          '@media (min-width: 768px)': {
+            fontSize: '1.2rem'
           }
-        },
-        containedSecondary: {
-          backgroundColor: '#2f4858',
-          color: '#ffffff',
-          '&:hover': {
-            backgroundColor: '#243745'
-          }
-        }
-      }
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#ffffff',
-          color: '#333333',
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          borderRadius: 12,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-          transition: 'transform 0.3s',
-          '&:hover': {
-            transform: 'scale(1.02)'
-          }
-        }
-      }
-    },
-    MuiTypography: {
-      styleOverrides: {
-        h1: {
-          color: '#333333'
-        },
-        h2: {
-          color: '#2f4858'
-        },
-        body1: {
-          color: '#555555'
         }
       }
     }
-  },
-  shape: {
-    borderRadius: 8
-  },
-  spacing: 8
-});
-export default theme;
+  }
+};
